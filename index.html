@@ -296,16 +296,17 @@
     
     <script>
 var searchText = $.getUrlParam('q');
+var resultDisplayGoogle = $.getUrlParam('Google');
 //baidu
 var resultAddrNo1= "https://www.baidu.com/s?wd="+ searchText;
 var resultImgNo1 = "https://www.baidu.com/img/baidu_jgylogo3.gif";
 var resultStyleNo1 = "top:-140px;left:-80px";
 var resultDisplayNo1 = $.getUrlParam('Baidu');
 //bing cn
-var resultAddrNo2= "https://cn.bing.com/search?ensearch=0&q="+ searchText;
-var resultImgNo2 = "https://tse2-mm.cn.bing.net/th?id=OIP.UDfrxxtm5yamizWcAn7OXgAAAA&w=227&h=106&c=7&o=5&pid=1.7";
-var resultStyleNo2 = "top:-190px;left:-80px";
-var resultDisplayNo2 = $.getUrlParam('BingCn');
+var resultAddrNo8= "https://cn.bing.com/search?ensearch=0&q="+ searchText;
+var resultImgNo8 = "https://tse2-mm.cn.bing.net/th?id=OIP.UDfrxxtm5yamizWcAn7OXgAAAA&w=227&h=106&c=7&o=5&pid=1.7";
+var resultStyleNo8 = "top:-190px;left:-80px";
+var resultDisplayNo8 = $.getUrlParam('BingCn');
 //bing en
 var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
 var resultImgNo3 = "https://tse2-mm.cn.bing.net/th?id=OIP.F714JC_Yqnw0GNto5jK4fgHaFj&w=220&h=165&c=7&o=5&pid=1.7";
@@ -331,35 +332,72 @@ var resultAddrNo7= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Aqidian.
 var resultImgNo7 = "/assets/images/qidianlogo.jpg";
 var resultStyleNo7 = "top:-140px;left:-80px";
 var resultDisplayNo7 = $.getUrlParam('Qidian');
+//Taobao
+var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
+var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
+var resultStyleNo2 = "top:-240px;left:-1px";
+var resultDisplayNo2 = $.getUrlParam('Taobao');
+// //JD
+// var resultAddrNo9= "https://search.jd.com/Search?keyword="+ searchText+"&enc=utf-8";
+// var resultImgNo9 = "https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/299c55e31d7f50ae4dc85faa90d6f445_121_121.jpg";
+// var resultStyleNo9 = "top:-200px;left:-150px";
+// var resultDisplayNo9 = $.getUrlParam('JD');
+// //Amazon
+// var resultAddrNo10= "https://www.amazon.cn/s?k="+ searchText+"&__mk_zh_CN=亚马逊网站&ref=nb_sb_noss";
+// var resultImgNo10 = "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=1234395725,3592627001&fm=58&s=2C93E516C4A4EF011DEDA94C0100D0B3&bpow=121&bpoh=75";
+// var resultStyleNo10 = "top:-140px;left:-160px";
+// var resultDisplayNo10 = $.getUrlParam('Amazon');
+
+// decide which to display
+switch ($.getUrlParam('searchType')) {
+  case 'FC':
+  resultDisplayNo1 = "on";
+  resultDisplayNo4 = "on";
+  resultDisplayNo5 = "on";
+  resultDisplayNo6 = "on";
+  break;
+  case 'ME':
+  resultDisplayNo1 = "on";
+  resultDisplayNo8 = "on";
+  resultDisplayNo3 = "on";
+  break;
+  case 'Sp':
+  resultDisplayNo2 = "on";
+  resultDisplayNo4 = "on";
+  break;
+  case 'Fun':
+  resultDisplayNo5 = "on";
+  resultDisplayNo6 = "on";
+  resultDisplayNo7 = "on";
+  break;
+  default:
+  // resultDisplayNo1 = "on";
+  // resultDisplayNo8 = "on";
+  // resultDisplayNo3 = "on";
+}
 </script>
 
 <style type="text/css">
 .flogo {width: 100px;height:13px}
-.search_result {width:700px;height:237px;overflow-y:scroll;overflow-x:hidden}
+.search_result {width:700px;height:350px;overflow-y:scroll;overflow-x:hidden}
 .search_iframe {position:relative;width:700px;height:9999px; border:none}
 </style>
 
 <form id="searchForm">
   <input id="searchFormInput" name="q" type="text" />
-  <p style="display: inline;"><input type="checkbox" name="Google" id="SCheckGoogle" /> Google</p>
-  <p style="display: inline;"><input type="checkbox" name="Baidu" checked="" id="SCheckBaidu" /> Baidu</p>
-  <p style="display: inline;"><input type="checkbox" name="Bing" id="SCheckBing" /> Bing</p>
-  <p style="display: inline;"><input type="checkbox" name="BingCn" id="SCheckBingCn" /> BingCn</p><br />
-  <p style="display: inline;"><input type="checkbox" name="BaiduImg" checked="" id="SCheckBaiduImg" /> Image</p>
-  <p style="display: inline;"><input type="checkbox" name="Bili" id="SCheckBili" /> Bilibili</p>
-  <p style="display: inline;"><input type="checkbox" name="Zhihu" id="SCheckZhihu" /> Zhihu</p>
-  <p style="display: inline;"><input type="checkbox" name="Qidian" id="SCheckQidian" /> Qidian</p>
+  <p style="display: inline;"><input type="radio" checked="" name="searchType" value="FC" id="SCheckFC" /> Fact Checker</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="ME" id="SCheckME" /> Many Engines</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="Sp" id="SCheckSp" /> Shopping</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="Fun" id="SCheckFun" /> Fun</p>
+  <p style="display: inline;"><input type="checkbox" name="Google" id="SCheckGoogle" /> <b>Google</b></p>
   <p><input type="submit" value="Search" /></p>
   <script>
   document.getElementById("searchFormInput").value= searchText ;
+  document.getElementById("SCheckFC").checked=($.getUrlParam('searchType')=="FC");
+  document.getElementById("SCheckME").checked=($.getUrlParam('searchType')=="ME");
+  document.getElementById("SCheckSp").checked=($.getUrlParam('searchType')=="Sp");
+  document.getElementById("SCheckFun").checked=($.getUrlParam('searchType')=="Fun");
   document.getElementById("SCheckGoogle").checked=($.getUrlParam('Google')=="on");
-  document.getElementById("SCheckBaidu").checked=($.getUrlParam('Baidu')=="on");
-  document.getElementById("SCheckBing").checked=($.getUrlParam('Bing')=="on");
-  document.getElementById("SCheckBingCn").checked=($.getUrlParam('BingCn')=="on");
-  document.getElementById("SCheckBaiduImg").checked=($.getUrlParam('BaiduImg')=="on");
-  document.getElementById("SCheckBili").checked=($.getUrlParam('Bili')=="on");
-  document.getElementById("SCheckZhihu").checked=($.getUrlParam('Zhihu')=="on");
-  document.getElementById("SCheckQidian").checked=($.getUrlParam('Qidian')=="on");
   </script>
 </form>
 
@@ -384,7 +422,7 @@ var resultDisplayNo7 = $.getUrlParam('Qidian');
 <gcse:searchresults-only></gcse:searchresults-only>
 </div>
 <script type="text/javascript">
-if ($.getUrlParam('Google')=="on")
+if (resultDisplayGoogle=="on")
 {
   document.getElementById("logoImgGoogle").src= "https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png";
   document.getElementById("logoLinkGoogle").href= "https://www.google.com.hk/search?q="+ searchText;
@@ -564,6 +602,30 @@ else{
 
 </div>
 <!-- Result Area No7 End -->
+
+<!-- Result Area No8 Start -->
+<div id="resultAreaNo8">
+<figure class="flogo">
+<a id="logoLinkNo8" target="_blank"><img id="logoImgNo8" /></a>
+</figure>
+<div class="search_result">
+<iframe id="resultNo8" scrolling="no" class="search_iframe"></iframe>
+</div>
+<script type="text/javascript">
+if (resultDisplayNo8=="on")
+{
+document.getElementById("resultNo8").src = resultAddrNo8;
+document.getElementById("resultNo8").style = resultStyleNo8;
+document.getElementById("logoLinkNo8").href= resultAddrNo8;
+document.getElementById("logoImgNo8").src = resultImgNo8;
+}
+else{
+  document.getElementById("resultAreaNo8").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No8 End -->
 
 
   </div>
