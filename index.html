@@ -305,8 +305,9 @@ var resultDisplayNo1 = $.getUrlParam('Baidu');
 //Taobao
 var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
 var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
-var resultStyleNo2 = "top:-240px;left:-1px";
+var resultStyleNo2 = "top:-240px;left:-1px;width:1000px";
 var resultDisplayNo2 = $.getUrlParam('Taobao');
+var resultXYDisplayNo2 ="overflow-x:scroll;overflow-y:scroll;";
 //bing en
 var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
 var resultImgNo3 = "https://tse2-mm.cn.bing.net/th?id=OIP.F714JC_Yqnw0GNto5jK4fgHaFj&w=220&h=165&c=7&o=5&pid=1.7";
@@ -419,7 +420,7 @@ switch ($.getUrlParam('searchType')) {
   <p style="display: inline;"><input type="checkbox" name="Google" id="SCheckGoogle" /> <b>Google</b></p>
   <script>
   document.getElementById("searchFormInput").value= searchText ;
-  document.getElementById("SCheckFC").checked=($.getUrlParam('searchType')=="FC");
+  //document.getElementById("SCheckFC").checked=($.getUrlParam('searchType')=="FC");
   document.getElementById("SCheckME").checked=($.getUrlParam('searchType')=="ME");
   document.getElementById("SCheckVD").checked=($.getUrlParam('searchType')=="VD");
   document.getElementById("SCheckSp").checked=($.getUrlParam('searchType')=="Sp");
