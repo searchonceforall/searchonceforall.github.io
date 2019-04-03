@@ -315,13 +315,15 @@ var resultDisplayNo3 = $.getUrlParam('Bing');
 //Baidu Image
 var resultAddrNo4= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
 var resultImgNo4 = "https://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png";
-var resultStyleNo4 = "top:-170px;left:-1px";
+var resultStyleNo4 = "top:-170px;left:-1px;width:1000px";
 var resultDisplayNo4 = $.getUrlParam('BaiduImg');
+var resultXYDisplayNo4 ="overflow-x:scroll;overflow-y:scroll;";
 //bilibili
 var resultAddrNo5= "https://search.bilibili.com/all?keyword="+ searchText+"&from_source=banner_search";
 var resultImgNo5 = "/assets/images/bilibililogo.jpg";
-var resultStyleNo5 = "top:-300px;left:-1px";
+var resultStyleNo5 = "top:-300px;left:-1px;width:1000px";
 var resultDisplayNo5 = $.getUrlParam('Bili');
+var resultXYDisplayNo5 ="overflow-x:scroll;overflow-y:scroll;";
 //Baidu Zhihu
 var resultAddrNo6= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Azhihu.com&ie=utf-8&ie=utf-8";
 var resultImgNo6 = "/assets/images/zhihulogo.jpg";
@@ -342,6 +344,18 @@ var resultAddrNo9= "https://www.sogou.com/web?query="+ searchText;
 var resultImgNo9 = "https://www.sogou.com/web/img/logo115_50.png?v=5";
 var resultStyleNo9 = "top:-160px;left:-100px;";
 var resultDisplayNo9 = $.getUrlParam('Sougou');
+//iQiyi
+var resultAddrNo10= "https://so.iqiyi.com/so/q_"+ searchText;
+var resultImgNo10 = "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3648390168,1713673067&fm=58&s=6BC28852DD305C0354F4835E02001073&bpow=121&bpoh=75";
+var resultStyleNo10 = "top:-170px;left:-1px;width:1000px";
+var resultDisplayNo10 = $.getUrlParam('iQiyi');
+var resultXYDisplayNo10 ="overflow-x:scroll;overflow-y:scroll;";
+//TencentVideo
+var resultAddrNo11= "https://v.qq.com/x/search/?q="+ searchText;
+var resultImgNo11 = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1150758895,2712244977&fm=26&gp=0.jpg";
+var resultStyleNo11 = "top:-170px;left:-1px;width:1000px";
+var resultDisplayNo11 = $.getUrlParam('TencentVideo');
+var resultXYDisplayNo11 ="overflow-x:scroll;overflow-y:scroll;";
 // //JD
 // var resultAddrNo9= "https://search.jd.com/Search?keyword="+ searchText+"&enc=utf-8";
 // var resultImgNo9 = "https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/299c55e31d7f50ae4dc85faa90d6f445_121_121.jpg";
@@ -367,6 +381,11 @@ switch ($.getUrlParam('searchType')) {
   resultDisplayNo8 = "on";
   resultDisplayNo9 = "on";
   break;
+  case 'VD':
+  resultDisplayNo5 = "on";
+  resultDisplayNo11 = "on";
+  resultDisplayNo10 = "on";
+  break;
   case 'Sp':
   resultDisplayNo2 = "on";
   resultDisplayNo4 = "on";
@@ -390,17 +409,19 @@ switch ($.getUrlParam('searchType')) {
 </style>
 
 <form id="searchForm">
-  <input id="searchFormInput" name="q" type="text" />
   <p style="display: inline;"><input type="radio" checked="" name="searchType" value="FC" id="SCheckFC" /> Fact Checker</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="ME" id="SCheckME" /> Many Engines</p>
-  <p style="display: inline;"><input type="radio" name="searchType" value="Sp" id="SCheckSp" /> Shopping</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="VD" id="SCheckVD" /> Videos</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="Sp" id="SCheckSp" /> Shops</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="Fun" id="SCheckFun" /> Fun</p>
+  <input id="searchFormInput" name="q" type="text" />
+  <p style="display: inline;"><input type="submit" value="Search" /></p>
   <p style="display: inline;"><input type="checkbox" name="Google" id="SCheckGoogle" /> <b>Google</b></p>
-  <p><input type="submit" value="Search" /></p>
   <script>
   document.getElementById("searchFormInput").value= searchText ;
   document.getElementById("SCheckFC").checked=($.getUrlParam('searchType')=="FC");
   document.getElementById("SCheckME").checked=($.getUrlParam('searchType')=="ME");
+  document.getElementById("SCheckVD").checked=($.getUrlParam('searchType')=="VD");
   document.getElementById("SCheckSp").checked=($.getUrlParam('searchType')=="Sp");
   document.getElementById("SCheckFun").checked=($.getUrlParam('searchType')=="Fun");
   document.getElementById("SCheckGoogle").checked=($.getUrlParam('Google')=="on");
@@ -446,7 +467,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo1" target="_blank"><img id="logoImgNo1" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo1">
 <iframe id="resultNo1" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -456,6 +477,10 @@ document.getElementById("resultNo1").src = resultAddrNo1;
 document.getElementById("resultNo1").style = resultStyleNo1;
 document.getElementById("logoLinkNo1").href= resultAddrNo1;
 document.getElementById("logoImgNo1").src = resultImgNo1;
+ if( typeof resultXYDisplayNo1!='undefined')
+ {
+ document.getElementById("resultXYNo1").style = resultXYDisplayNo1;
+ }
 }
 else{
   document.getElementById("resultAreaNo1").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -470,7 +495,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo2" target="_blank"><img id="logoImgNo2" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo2">
 <iframe id="resultNo2" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -480,6 +505,10 @@ document.getElementById("resultNo2").src = resultAddrNo2;
 document.getElementById("resultNo2").style = resultStyleNo2;
 document.getElementById("logoLinkNo2").href= resultAddrNo2;
 document.getElementById("logoImgNo2").src = resultImgNo2;
+ if( typeof resultXYDisplayNo2!='undefined')
+ {
+ document.getElementById("resultXYNo2").style = resultXYDisplayNo2;
+ }
 }
 else{
   document.getElementById("resultAreaNo2").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -494,7 +523,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo3" target="_blank"><img id="logoImgNo3" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo3">
 <iframe id="resultNo3" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -504,6 +533,10 @@ document.getElementById("resultNo3").src = resultAddrNo3;
 document.getElementById("resultNo3").style = resultStyleNo3;
 document.getElementById("logoLinkNo3").href= resultAddrNo3;
 document.getElementById("logoImgNo3").src = resultImgNo3;
+ if( typeof resultXYDisplayNo3!='undefined')
+ {
+ document.getElementById("resultXYNo3").style = resultXYDisplayNo3;
+ }
 }
 else{
   document.getElementById("resultAreaNo3").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -518,7 +551,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo4" target="_blank"><img id="logoImgNo4" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo4">
 <iframe id="resultNo4" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -528,6 +561,10 @@ document.getElementById("resultNo4").src = resultAddrNo4;
 document.getElementById("resultNo4").style = resultStyleNo4;
 document.getElementById("logoLinkNo4").href= resultAddrNo4;
 document.getElementById("logoImgNo4").src = resultImgNo4;
+ if( typeof resultXYDisplayNo4!='undefined')
+ {
+ document.getElementById("resultXYNo4").style = resultXYDisplayNo4;
+ }
 }
 else{
   document.getElementById("resultAreaNo4").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -542,7 +579,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo5" target="_blank"><img id="logoImgNo5" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo5">
 <iframe id="resultNo5" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -552,6 +589,10 @@ document.getElementById("resultNo5").src = resultAddrNo5;
 document.getElementById("resultNo5").style = resultStyleNo5;
 document.getElementById("logoLinkNo5").href= resultAddrNo5;
 document.getElementById("logoImgNo5").src = resultImgNo5;
+ if( typeof resultXYDisplayNo5!='undefined')
+ {
+ document.getElementById("resultXYNo5").style = resultXYDisplayNo5;
+ }
 }
 else{
   document.getElementById("resultAreaNo5").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -566,7 +607,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo6" target="_blank"><img id="logoImgNo6" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo6">
 <iframe id="resultNo6" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -576,6 +617,10 @@ document.getElementById("resultNo6").src = resultAddrNo6;
 document.getElementById("resultNo6").style = resultStyleNo6;
 document.getElementById("logoLinkNo6").href= resultAddrNo6;
 document.getElementById("logoImgNo6").src = resultImgNo6;
+ if( typeof resultXYDisplayNo6!='undefined')
+ {
+ document.getElementById("resultXYNo6").style = resultXYDisplayNo6;
+ }
 }
 else{
   document.getElementById("resultAreaNo6").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -590,7 +635,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo7" target="_blank"><img id="logoImgNo7" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo7">
 <iframe id="resultNo7" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -600,6 +645,10 @@ document.getElementById("resultNo7").src = resultAddrNo7;
 document.getElementById("resultNo7").style = resultStyleNo7;
 document.getElementById("logoLinkNo7").href= resultAddrNo7;
 document.getElementById("logoImgNo7").src = resultImgNo7;
+ if( typeof resultXYDisplayNo7!='undefined')
+ {
+ document.getElementById("resultXYNo7").style = resultXYDisplayNo7;
+ }
 }
 else{
   document.getElementById("resultAreaNo7").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -614,7 +663,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo8" target="_blank"><img id="logoImgNo8" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo8">
 <iframe id="resultNo8" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -624,6 +673,10 @@ document.getElementById("resultNo8").src = resultAddrNo8;
 document.getElementById("resultNo8").style = resultStyleNo8;
 document.getElementById("logoLinkNo8").href= resultAddrNo8;
 document.getElementById("logoImgNo8").src = resultImgNo8;
+ if( typeof resultXYDisplayNo8!='undefined')
+ {
+ document.getElementById("resultXYNo8").style = resultXYDisplayNo8;
+ }
 }
 else{
   document.getElementById("resultAreaNo8").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -638,7 +691,7 @@ else{
 <figure class="flogo">
 <a id="logoLinkNo9" target="_blank"><img id="logoImgNo9" /></a>
 </figure>
-<div class="search_result">
+<div class="search_result" id="resultXYNo9">
 <iframe id="resultNo9" scrolling="no" class="search_iframe"></iframe>
 </div>
 <script type="text/javascript">
@@ -648,6 +701,10 @@ document.getElementById("resultNo9").src = resultAddrNo9;
 document.getElementById("resultNo9").style = resultStyleNo9;
 document.getElementById("logoLinkNo9").href= resultAddrNo9;
 document.getElementById("logoImgNo9").src = resultImgNo9;
+ if( typeof resultXYDisplayNo9!='undefined')
+ {
+ document.getElementById("resultXYNo9").style = resultXYDisplayNo9;
+ }
 }
 else{
   document.getElementById("resultAreaNo9").style = "width:0px;height:0px;overflow-y:hidden;"
@@ -656,6 +713,62 @@ else{
 
 </div>
 <!-- Result Area No9 End -->
+
+<!-- Result Area No10 Start -->
+<div id="resultAreaNo10">
+<figure class="flogo">
+<a id="logoLinkNo10" target="_blank"><img id="logoImgNo10" /></a>
+</figure>
+<div class="search_result" id="resultXYNo10">
+<iframe id="resultNo10" scrolling="no" class="search_iframe"></iframe>
+</div>
+<script type="text/javascript">
+if (resultDisplayNo10=="on")
+{
+document.getElementById("resultNo10").src = resultAddrNo10;
+document.getElementById("resultNo10").style = resultStyleNo10;
+document.getElementById("logoLinkNo10").href= resultAddrNo10;
+document.getElementById("logoImgNo10").src = resultImgNo10;
+ if( typeof resultXYDisplayNo10!='undefined')
+ {
+ document.getElementById("resultXYNo10").style = resultXYDisplayNo10;
+ }
+}
+else{
+  document.getElementById("resultAreaNo10").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No10 End -->
+
+<!-- Result Area No11 Start -->
+<div id="resultAreaNo11">
+<figure class="flogo">
+<a id="logoLinkNo11" target="_blank"><img id="logoImgNo11" /></a>
+</figure>
+<div class="search_result" id="resultXYNo11">
+<iframe id="resultNo11" scrolling="no" class="search_iframe"></iframe>
+</div>
+<script type="text/javascript">
+if (resultDisplayNo11=="on")
+{
+document.getElementById("resultNo11").src = resultAddrNo11;
+document.getElementById("resultNo11").style = resultStyleNo11;
+document.getElementById("logoLinkNo11").href= resultAddrNo11;
+document.getElementById("logoImgNo11").src = resultImgNo11;
+ if( typeof resultXYDisplayNo11!='undefined')
+ {
+ document.getElementById("resultXYNo11").style = resultXYDisplayNo11;
+ }
+}
+else{
+  document.getElementById("resultAreaNo11").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No11 End -->
 
 
   </div>
