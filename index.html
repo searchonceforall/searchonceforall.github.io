@@ -302,15 +302,15 @@ var resultAddrNo1= "https://www.baidu.com/s?wd="+ searchText;
 var resultImgNo1 = "https://www.baidu.com/img/baidu_jgylogo3.gif";
 var resultStyleNo1 = "top:-140px;left:-80px";
 var resultDisplayNo1 = $.getUrlParam('Baidu');
-//bing cn
-var resultAddrNo8= "https://cn.bing.com/search?ensearch=0&q="+ searchText;
-var resultImgNo8 = "https://tse2-mm.cn.bing.net/th?id=OIP.UDfrxxtm5yamizWcAn7OXgAAAA&w=227&h=106&c=7&o=5&pid=1.7";
-var resultStyleNo8 = "top:-190px;left:-80px";
-var resultDisplayNo8 = $.getUrlParam('BingCn');
+//Taobao
+var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
+var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
+var resultStyleNo2 = "top:-240px;left:-1px";
+var resultDisplayNo2 = $.getUrlParam('Taobao');
 //bing en
 var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
 var resultImgNo3 = "https://tse2-mm.cn.bing.net/th?id=OIP.F714JC_Yqnw0GNto5jK4fgHaFj&w=220&h=165&c=7&o=5&pid=1.7";
-var resultStyleNo3 = "top:-200px;left:-80px";
+var resultStyleNo3 = "top:-200px;left:-100px;width:1000px";
 var resultDisplayNo3 = $.getUrlParam('Bing');
 //Baidu Image
 var resultAddrNo4= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
@@ -332,11 +332,16 @@ var resultAddrNo7= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Aqidian.
 var resultImgNo7 = "/assets/images/qidianlogo.jpg";
 var resultStyleNo7 = "top:-140px;left:-80px";
 var resultDisplayNo7 = $.getUrlParam('Qidian');
-//Taobao
-var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
-var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
-var resultStyleNo2 = "top:-240px;left:-1px";
-var resultDisplayNo2 = $.getUrlParam('Taobao');
+//Sougou
+var resultAddrNo8= "https://www.sogou.com/web?query="+ searchText;
+var resultImgNo8 = "https://www.sogou.com/web/img/logo115_50.png?v=5";
+var resultStyleNo8 = "top:-160px;left:-100px;";
+var resultDisplayNo8 = $.getUrlParam('Sougou');
+//360
+var resultAddrNo9= "https://www.so.com/s?ie=utf-8&q="+ searchText;
+var resultImgNo9 = "http://img1.imgtn.bdimg.com/it/u=303029212,1017590625&fm=26&gp=0.jpg";
+var resultStyleNo9 = "top:-140px;left:-100px;";
+var resultDisplayNo9 = $.getUrlParam('360');
 // //JD
 // var resultAddrNo9= "https://search.jd.com/Search?keyword="+ searchText+"&enc=utf-8";
 // var resultImgNo9 = "https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/299c55e31d7f50ae4dc85faa90d6f445_121_121.jpg";
@@ -358,8 +363,9 @@ switch ($.getUrlParam('searchType')) {
   break;
   case 'ME':
   resultDisplayNo1 = "on";
-  resultDisplayNo8 = "on";
   resultDisplayNo3 = "on";
+  resultDisplayNo8 = "on";
+  resultDisplayNo9 = "on";
   break;
   case 'Sp':
   resultDisplayNo2 = "on";
@@ -379,7 +385,7 @@ switch ($.getUrlParam('searchType')) {
 
 <style type="text/css">
 .flogo {width: 100px;height:13px}
-.search_result {width:700px;height:350px;overflow-y:scroll;overflow-x:hidden}
+.search_result {width:650px;height:350px;overflow-y:scroll;overflow-x:hidden}
 .search_iframe {position:relative;width:700px;height:9999px; border:none}
 </style>
 
@@ -626,6 +632,30 @@ else{
 
 </div>
 <!-- Result Area No8 End -->
+
+<!-- Result Area No9 Start -->
+<div id="resultAreaNo9">
+<figure class="flogo">
+<a id="logoLinkNo9" target="_blank"><img id="logoImgNo9" /></a>
+</figure>
+<div class="search_result">
+<iframe id="resultNo9" scrolling="no" class="search_iframe"></iframe>
+</div>
+<script type="text/javascript">
+if (resultDisplayNo9=="on")
+{
+document.getElementById("resultNo9").src = resultAddrNo9;
+document.getElementById("resultNo9").style = resultStyleNo9;
+document.getElementById("logoLinkNo9").href= resultAddrNo9;
+document.getElementById("logoImgNo9").src = resultImgNo9;
+}
+else{
+  document.getElementById("resultAreaNo9").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No9 End -->
 
 
   </div>
