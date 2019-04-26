@@ -130,7 +130,7 @@
 
   </head>
 
-  <body class="layout--archive">
+  <body class="layout--splash">
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
@@ -162,199 +162,90 @@
     <div class="initial-content">
       
 
-
-
 <div id="main" role="main">
-  
-  <div class="sidebar sticky">
-  
-
-
-<div itemscope itemtype="https://schema.org/Person">
-
-  
-    <div class="author__avatar">
-      
-
-      
-        <img src="/assets/images/JYSelfie.jpg" alt="YYJ" itemprop="image">
-      
-    </div>
-  
-
-  <div class="author__content">
-    
-      <h3 class="author__name" itemprop="name">YYJ</h3>
+  <article class="splash" itemscope itemtype="https://schema.org/CreativeWork">
     
     
-      <p class="author__bio" itemprop="description">
-        An inventor
-      </p>
     
-  </div>
-
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
-      
-        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Just online</span>
-        </li>
-      
-
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-            <li><a href="https://yyjplus.github.io/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-          
-        
-          
-        
-      
-
-      
-
-      
-        <li>
-          <a href="mailto:yyjplus@163.com">
-            <meta itemprop="email" content="yyjplus@163.com" />
-            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
-          </a>
-        </li>
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      <!--
-  <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
-      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
-    </a>
-  </li>
--->
-    </ul>
-  </div>
-</div>
-
-  
-  </div>
-
-
-  <div class="archive">
     
-      <h1 id="page-title" class="page__title"></h1>
-    
-    <script>
+
+    <section class="page__content" itemprop="text">
+      <style type="text/css">
+/* .flogo {width: 100px;height:13px}
+.search_result {width:650px;height:350px;overflow-y:scroll;overflow-x:hidden}
+.search_iframe {position:relative;width:700px;height:2500px; border:none} */
+
+.flogo {width: 100px;height:13px}
+.search_result {height:470px;overflow-y:scroll;overflow-x:hidden}
+.search_iframe {position:relative;height:2500px; border:none}
+</style>
+
+<script>
+var widthmargin = 50; // in px, now only for google
+// document.write(window.screenTop);
+// document.write(window.screenLeft);
+
 var searchText = $.getUrlParam('q');
 var resultDisplayGoogle = $.getUrlParam('Google');
 //baidu
-var resultAddrNo1= "https://www.baidu.com/s?wd="+ searchText;
+var resultAddrNo1= "https://baidu.com/s?wd="+ searchText;
 var resultImgNo1 = "https://www.baidu.com/img/baidu_jgylogo3.gif";
-var resultStyleNo1 = "top:-140px;left:-80px";
+var resultStyleNo1 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
+// var resultStyleNo1 = "top:-140px;left:-80px;"+"width:"+ (document.body.clientWidth+80)+"px";
 var resultDisplayNo1 = $.getUrlParam('Baidu');
 //Taobao
 var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
 var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
-var resultStyleNo2 = "top:-240px;left:-1px;width:1000px";
+var resultStyleNo2 = "top:-240px;"+"width:"+ (window.screen.width-widthmargin)+"px";//width:1000px
 var resultDisplayNo2 = $.getUrlParam('Taobao');
 var resultXYDisplayNo2 ="overflow-x:scroll;overflow-y:scroll;";
 //bing en
 var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
 var resultImgNo3 = "https://tse2-mm.cn.bing.net/th?id=OIP.F714JC_Yqnw0GNto5jK4fgHaFj&w=220&h=165&c=7&o=5&pid=1.7";
-var resultStyleNo3 = "top:-200px;left:-100px;width:1000px";
+var resultStyleNo3 = "top:-200px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo3 = $.getUrlParam('Bing');
 //Baidu Image
 var resultAddrNo4= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
 var resultImgNo4 = "https://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png";
-var resultStyleNo4 = "top:-170px;left:-1px;width:1000px";
+var resultStyleNo4 = "top:-170px;"+"width:"+ (window.screen.width-widthmargin)+"px";//width:1000px
 var resultDisplayNo4 = $.getUrlParam('BaiduImg');
 var resultXYDisplayNo4 ="overflow-x:scroll;overflow-y:scroll;";
 //bilibili
 var resultAddrNo5= "https://search.bilibili.com/all?keyword="+ searchText+"&from_source=banner_search";
 var resultImgNo5 = "/assets/images/bilibililogo.jpg";
-var resultStyleNo5 = "top:-300px;left:-1px;width:1000px";
+var resultStyleNo5 = "top:-300px;"+"width:"+ (window.screen.width-widthmargin)+"px";//width:1000px
 var resultDisplayNo5 = $.getUrlParam('Bili');
 var resultXYDisplayNo5 ="overflow-x:scroll;overflow-y:scroll;";
 //Baidu Zhihu
 var resultAddrNo6= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Azhihu.com&ie=utf-8&ie=utf-8";
 var resultImgNo6 = "/assets/images/zhihulogo.jpg";
-var resultStyleNo6 = "top:-140px;left:-80px";
+var resultStyleNo6 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo6 = $.getUrlParam('Zhihu');
 //Baidu Qidian
 var resultAddrNo7= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Aqidian.com&ie=utf-8&ie=utf-8";
 var resultImgNo7 = "/assets/images/qidianlogo.jpg";
-var resultStyleNo7 = "top:-140px;left:-80px";
+var resultStyleNo7 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo7 = $.getUrlParam('Qidian');
 //360
 var resultAddrNo8= "https://www.so.com/s?ie=utf-8&q="+ searchText;
 var resultImgNo8 = "http://img1.imgtn.bdimg.com/it/u=303029212,1017590625&fm=26&gp=0.jpg";
-var resultStyleNo8 = "top:-140px;left:-100px;";
+var resultStyleNo8 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo8 = $.getUrlParam('360');
 //Sougou
 var resultAddrNo9= "https://www.sogou.com/web?query="+ searchText;
 var resultImgNo9 = "https://www.sogou.com/web/img/logo115_50.png?v=5";
-var resultStyleNo9 = "top:-160px;left:-100px;";
+var resultStyleNo9 = "top:-160px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo9 = $.getUrlParam('Sougou');
 //iQiyi
 var resultAddrNo10= "https://so.iqiyi.com/so/q_"+ searchText;
 var resultImgNo10 = "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3648390168,1713673067&fm=58&s=6BC28852DD305C0354F4835E02001073&bpow=121&bpoh=75";
-var resultStyleNo10 = "top:-170px;left:-1px;width:1000px";
+var resultStyleNo10 = "top:-170px;"+"width:"+ (window.screen.width-widthmargin)+"px";//width:1000px
 var resultDisplayNo10 = $.getUrlParam('iQiyi');
 var resultXYDisplayNo10 ="overflow-x:scroll;overflow-y:scroll;";
 //TencentVideo
 var resultAddrNo11= "https://v.qq.com/x/search/?q="+ searchText;
 var resultImgNo11 = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1150758895,2712244977&fm=26&gp=0.jpg";
-var resultStyleNo11 = "top:-170px;left:-1px;width:1000px";
+var resultStyleNo11 = "top:-60px;"+"width:"+ (window.screen.width-widthmargin)+"px";//width:1000px
 var resultDisplayNo11 = $.getUrlParam('TencentVideo');
 var resultXYDisplayNo11 ="overflow-x:scroll;overflow-y:scroll;";
 // //JD
@@ -403,12 +294,6 @@ switch ($.getUrlParam('searchType')) {
 }
 </script>
 
-<style type="text/css">
-.flogo {width: 100px;height:13px}
-.search_result {width:650px;height:350px;overflow-y:scroll;overflow-x:hidden}
-.search_iframe {position:relative;width:700px;height:2500px; border:none}
-</style>
-
 <form id="searchForm">
   <p style="display: inline;"><input type="radio" checked="" name="searchType" value="FC" id="SCheckFC" /> Fact Checker</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="ME" id="SCheckME" /> Many Engines</p>
@@ -435,7 +320,7 @@ switch ($.getUrlParam('searchType')) {
 <a id="logoLinkGoogle" target="_blank">
 <img id="logoImgGoogle" /></a>
 </figure>
-<div style="width:650px;height:350px;overflow-y:scroll;overflow-x:hidden">
+<div id="iframeGoogle" style="width:650px;height:470px;overflow-y:scroll;overflow-x:hidden">
 <script>
   (function() {
     var cx = '004290002975220320617:fldcm2ka8mi';
@@ -454,7 +339,8 @@ if (resultDisplayGoogle=="on")
 {
   document.getElementById("logoImgGoogle").src= "https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png";
   document.getElementById("logoLinkGoogle").href= "https://www.google.com.hk/search?q="+ searchText;
-//  document.getElementById("resultAreaGoogle").style = "width:700px;height:350px;overflow-y:scroll;overflow-x:hidden";
+  document.getElementById("iframeGoogle").style.width = (document.body.clientWidth-widthmargin)+"px";
+//  document.write(document.getElementById("iframeGoogle").style.width);
 }
 else{
   document.getElementById("resultAreaGoogle").style = "width:0px;height:0px;overflow:hidden";
@@ -476,6 +362,7 @@ if (resultDisplayNo1=="on")
 {
 document.getElementById("resultNo1").src = resultAddrNo1;
 document.getElementById("resultNo1").style = resultStyleNo1;
+// document.getElementById("resultNo1").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo1").href= resultAddrNo1;
 document.getElementById("logoImgNo1").src = resultImgNo1;
  if( typeof resultXYDisplayNo1!='undefined')
@@ -504,6 +391,7 @@ if (resultDisplayNo2=="on")
 {
 document.getElementById("resultNo2").src = resultAddrNo2;
 document.getElementById("resultNo2").style = resultStyleNo2;
+// document.getElementById("resultNo2").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo2").href= resultAddrNo2;
 document.getElementById("logoImgNo2").src = resultImgNo2;
  if( typeof resultXYDisplayNo2!='undefined')
@@ -532,6 +420,7 @@ if (resultDisplayNo3=="on")
 {
 document.getElementById("resultNo3").src = resultAddrNo3;
 document.getElementById("resultNo3").style = resultStyleNo3;
+// document.getElementById("resultNo3").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo3").href= resultAddrNo3;
 document.getElementById("logoImgNo3").src = resultImgNo3;
  if( typeof resultXYDisplayNo3!='undefined')
@@ -560,6 +449,7 @@ if (resultDisplayNo4=="on")
 {
 document.getElementById("resultNo4").src = resultAddrNo4;
 document.getElementById("resultNo4").style = resultStyleNo4;
+// document.getElementById("resultNo4").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo4").href= resultAddrNo4;
 document.getElementById("logoImgNo4").src = resultImgNo4;
  if( typeof resultXYDisplayNo4!='undefined')
@@ -588,6 +478,7 @@ if (resultDisplayNo5=="on")
 {
 document.getElementById("resultNo5").src = resultAddrNo5;
 document.getElementById("resultNo5").style = resultStyleNo5;
+// document.getElementById("resultNo5").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo5").href= resultAddrNo5;
 document.getElementById("logoImgNo5").src = resultImgNo5;
  if( typeof resultXYDisplayNo5!='undefined')
@@ -616,6 +507,7 @@ if (resultDisplayNo6=="on")
 {
 document.getElementById("resultNo6").src = resultAddrNo6;
 document.getElementById("resultNo6").style = resultStyleNo6;
+// document.getElementById("resultNo6").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo6").href= resultAddrNo6;
 document.getElementById("logoImgNo6").src = resultImgNo6;
  if( typeof resultXYDisplayNo6!='undefined')
@@ -644,6 +536,7 @@ if (resultDisplayNo7=="on")
 {
 document.getElementById("resultNo7").src = resultAddrNo7;
 document.getElementById("resultNo7").style = resultStyleNo7;
+// document.getElementById("resultNo7").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo7").href= resultAddrNo7;
 document.getElementById("logoImgNo7").src = resultImgNo7;
  if( typeof resultXYDisplayNo7!='undefined')
@@ -672,6 +565,7 @@ if (resultDisplayNo8=="on")
 {
 document.getElementById("resultNo8").src = resultAddrNo8;
 document.getElementById("resultNo8").style = resultStyleNo8;
+// document.getElementById("resultNo8").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo8").href= resultAddrNo8;
 document.getElementById("logoImgNo8").src = resultImgNo8;
  if( typeof resultXYDisplayNo8!='undefined')
@@ -700,6 +594,7 @@ if (resultDisplayNo9=="on")
 {
 document.getElementById("resultNo9").src = resultAddrNo9;
 document.getElementById("resultNo9").style = resultStyleNo9;
+// document.getElementById("resultNo9").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo9").href= resultAddrNo9;
 document.getElementById("logoImgNo9").src = resultImgNo9;
  if( typeof resultXYDisplayNo9!='undefined')
@@ -728,6 +623,7 @@ if (resultDisplayNo10=="on")
 {
 document.getElementById("resultNo10").src = resultAddrNo10;
 document.getElementById("resultNo10").style = resultStyleNo10;
+// document.getElementById("resultNo10").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo10").href= resultAddrNo10;
 document.getElementById("logoImgNo10").src = resultImgNo10;
  if( typeof resultXYDisplayNo10!='undefined')
@@ -756,6 +652,7 @@ if (resultDisplayNo11=="on")
 {
 document.getElementById("resultNo11").src = resultAddrNo11;
 document.getElementById("resultNo11").style = resultStyleNo11;
+// document.getElementById("resultNo11").style.width = ($(document.body).width()+widthmargin)+"px";
 document.getElementById("logoLinkNo11").href= resultAddrNo11;
 document.getElementById("logoImgNo11").src = resultImgNo11;
  if( typeof resultXYDisplayNo11!='undefined')
@@ -772,8 +669,10 @@ else{
 <!-- Result Area No11 End -->
 
 
-  </div>
+    </section>
+  </article>
 </div>
+
     </div>
 
     
