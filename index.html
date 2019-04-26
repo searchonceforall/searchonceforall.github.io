@@ -176,7 +176,15 @@
 .search_iframe {position:relative;width:700px;height:2500px; border:none} */
 
 .flogo {width: 100px;height:13px}
-.search_result {height:470px;overflow-y:scroll;overflow-x:hidden}
+.search_result {
+  height:470px;overflow-y:scroll;overflow-x:hidden;
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  iframe{
+    width: 100%;
+    height: 100%;
+  }
+}
 .search_iframe {position:relative;height:2500px; border:none}
 </style>
 
