@@ -145,6 +145,8 @@
         
         <a class="site-title" href="/">Search Once For All</a>
         <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://yyjplus.github.io/searchonceforall/" >Help</a>
+            </li><li class="masthead__menu-item">
               <a href="https://yyjplus.github.io/" >Blog</a>
             </li></ul>
         
@@ -194,45 +196,54 @@ var widthmargin = 50; // in px, now only for google
 
 var searchText = $.getUrlParam('q');
 var resultDisplayGoogle = $.getUrlParam('Google');
+
 //baidu
 var resultAddrNo1= "https://baidu.com/s?wd="+ searchText;
 var resultImgNo1 = "/assets/images/baidu_jgylogo3.gif";
 var resultStyleNo1 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 // var resultStyleNo1 = "top:-140px;left:-80px;"+"width:"+ (document.body.clientWidth+80)+"px";
 var resultDisplayNo1 = $.getUrlParam('Baidu');
+
 //Taobao
 var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
 var resultImgNo2 = "/assets/images/d0335ffd4bb6e6e5360e9135cca41064.jpg";
 var resultStyleNo2 = "top:-240px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo2 = $.getUrlParam('Taobao');
 var resultXYDisplayNo2 ="overflow-x:scroll;overflow-y:scroll;";
-//bing en
-var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
-var resultImgNo3 = "/assets/images/th.jpg";
-var resultStyleNo3 = "top:-200px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";//width:1000px
-var resultDisplayNo3 = $.getUrlParam('Bing');
-//Baidu Image
-var resultAddrNo4= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
-var resultImgNo4 = "/assets/images/logo-2X_32a8193.png";
-var resultStyleNo4 = "top:-170px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
-var resultDisplayNo4 = $.getUrlParam('BaiduImg');
-var resultXYDisplayNo4 ="overflow-x:scroll;overflow-y:scroll;";
+
 //bilibili
-var resultAddrNo5= "https://search.bilibili.com/all?keyword="+ searchText+"&from_source=banner_search";
-var resultImgNo5 = "/assets/images/bilibililogo.jpg";
-var resultStyleNo5 = "top:-300px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
-var resultDisplayNo5 = $.getUrlParam('Bili');
-var resultXYDisplayNo5 ="overflow-x:scroll;overflow-y:scroll;";
+var resultAddrNo4= "https://search.bilibili.com/all?keyword="+ searchText+"&from_source=banner_search";
+var resultImgNo4 = "/assets/images/bilibililogo.jpg";
+var resultStyleNo4 = "top:-300px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
+var resultDisplayNo4 = $.getUrlParam('Bili');
+var resultXYDisplayNo4 ="overflow-x:scroll;overflow-y:scroll;";
+
 //Baidu Zhihu
-var resultAddrNo6= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Azhihu.com&ie=utf-8&ie=utf-8";
-var resultImgNo6 = "/assets/images/zhihulogo.jpg";
-var resultStyleNo6 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
-var resultDisplayNo6 = $.getUrlParam('Zhihu');
+var resultAddrNo3= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Azhihu.com&ie=utf-8&ie=utf-8";
+var resultImgNo3 = "/assets/images/zhihulogo.jpg";
+var resultStyleNo3 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
+var resultDisplayNo3 = $.getUrlParam('Zhihu');
+
 //Baidu Qidian
-var resultAddrNo7= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Aqidian.com&ie=utf-8&ie=utf-8";
-var resultImgNo7 = "/assets/images/qidianlogo.jpg";
-var resultStyleNo7 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
-var resultDisplayNo7 = $.getUrlParam('Qidian');
+var resultAddrNo5= "https://www.baidu.com/s?&wd="+ searchText+"%20site%3Aqidian.com&ie=utf-8&ie=utf-8";
+var resultImgNo5 = "/assets/images/qidianlogo.jpg";
+var resultStyleNo5 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
+var resultDisplayNo5 = $.getUrlParam('Qidian');
+
+//Baidu Image
+var resultAddrNo6= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
+var resultImgNo6 = "/assets/images/logo-2X_32a8193.png";
+var resultStyleNo6 = "top:-170px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
+var resultDisplayNo6 = $.getUrlParam('BaiduImg');
+var resultXYDisplayNo6 ="overflow-x:scroll;overflow-y:scroll;";
+
+
+//bing en
+var resultAddrNo7= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
+var resultImgNo7 = "/assets/images/th.jpg";
+var resultStyleNo7 = "top:-200px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";//width:1000px
+var resultDisplayNo7 = $.getUrlParam('Bing');
+
 //360
 var resultAddrNo8= "https://www.so.com/s?ie=utf-8&q="+ searchText;
 var resultImgNo8 = "/assets/images/360logo.jpg";
@@ -270,29 +281,30 @@ var resultXYDisplayNo11 ="overflow-x:scroll;overflow-y:scroll;";
 switch ($.getUrlParam('searchType')) {
   case 'FC':
   resultDisplayNo1 = "on";
+  resultDisplayNo3 = "on";
   resultDisplayNo4 = "on";
-  resultDisplayNo5 = "on";
   resultDisplayNo6 = "on";
   break;
   case 'ME':
   resultDisplayNo1 = "on";
-  resultDisplayNo3 = "on";
+  resultDisplayNo7 = "on";
   resultDisplayNo8 = "on";
   resultDisplayNo9 = "on";
   break;
   case 'VD':
-  resultDisplayNo5 = "on";
+  resultDisplayNo4 = "on";
   resultDisplayNo11 = "on";
   resultDisplayNo10 = "on";
   break;
   case 'Sp':
   resultDisplayNo2 = "on";
-  resultDisplayNo4 = "on";
+  resultDisplayNo3 = "on";
+  resultDisplayNo6 = "on";
   break;
   case 'Fun':
+  resultDisplayNo4 = "on";
+  resultDisplayNo3 = "on";
   resultDisplayNo5 = "on";
-  resultDisplayNo6 = "on";
-  resultDisplayNo7 = "on";
   break;
   default:
   // resultDisplayNo1 = "on";
