@@ -196,24 +196,24 @@ var searchText = $.getUrlParam('q');
 var resultDisplayGoogle = $.getUrlParam('Google');
 //baidu
 var resultAddrNo1= "https://baidu.com/s?wd="+ searchText;
-var resultImgNo1 = "https://www.baidu.com/img/baidu_jgylogo3.gif";
+var resultImgNo1 = "/assets/images/baidu_jgylogo3.gif";
 var resultStyleNo1 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 // var resultStyleNo1 = "top:-140px;left:-80px;"+"width:"+ (document.body.clientWidth+80)+"px";
 var resultDisplayNo1 = $.getUrlParam('Baidu');
 //Taobao
 var resultAddrNo2= "https://uland.taobao.com/sem/tbsearch?keyword="+ searchText;
-var resultImgNo2 = "https://ss0.bdstatic.com/9r-1bjml2gcT8tyhnq/imagelib/150/share_pic/d0335ffd4bb6e6e5360e9135cca41064.jpg";
+var resultImgNo2 = "/assets/images/d0335ffd4bb6e6e5360e9135cca41064.jpg";
 var resultStyleNo2 = "top:-240px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo2 = $.getUrlParam('Taobao');
 var resultXYDisplayNo2 ="overflow-x:scroll;overflow-y:scroll;";
 //bing en
 var resultAddrNo3= "https://cn.bing.com/search?ensearch=1&q="+ searchText;
-var resultImgNo3 = "https://tse2-mm.cn.bing.net/th?id=OIP.F714JC_Yqnw0GNto5jK4fgHaFj&w=220&h=165&c=7&o=5&pid=1.7";
+var resultImgNo3 = "/assets/images/th.jpg";
 var resultStyleNo3 = "top:-200px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo3 = $.getUrlParam('Bing');
 //Baidu Image
 var resultAddrNo4= "https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1552899808603_R&pv=&ic=0&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word="+ searchText;
-var resultImgNo4 = "https://img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png";
+var resultImgNo4 = "/assets/images/logo-2X_32a8193.png";
 var resultStyleNo4 = "top:-170px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo4 = $.getUrlParam('BaiduImg');
 var resultXYDisplayNo4 ="overflow-x:scroll;overflow-y:scroll;";
@@ -235,23 +235,23 @@ var resultStyleNo7 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmar
 var resultDisplayNo7 = $.getUrlParam('Qidian');
 //360
 var resultAddrNo8= "https://www.so.com/s?ie=utf-8&q="+ searchText;
-var resultImgNo8 = "http://img1.imgtn.bdimg.com/it/u=303029212,1017590625&fm=26&gp=0.jpg";
+var resultImgNo8 = "/assets/images/360logo.jpg";
 var resultStyleNo8 = "top:-140px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo8 = $.getUrlParam('360');
 //Sougou
 var resultAddrNo9= "https://www.sogou.com/web?query="+ searchText;
-var resultImgNo9 = "https://www.sogou.com/web/img/logo115_50.png?v=5";
+var resultImgNo9 = "/assets/images/logo115_50.png";
 var resultStyleNo9 = "top:-160px;"+"width:"+ (document.body.clientWidth-widthmargin)+"px";
 var resultDisplayNo9 = $.getUrlParam('Sougou');
 //iQiyi
 var resultAddrNo10= "https://so.iqiyi.com/so/q_"+ searchText;
-var resultImgNo10 = "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=3648390168,1713673067&fm=58&s=6BC28852DD305C0354F4835E02001073&bpow=121&bpoh=75";
+var resultImgNo10 = "/assets/images/iqiyilogo.jpg";
 var resultStyleNo10 = "top:-170px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo10 = $.getUrlParam('iQiyi');
 var resultXYDisplayNo10 ="overflow-x:scroll;overflow-y:scroll;";
 //TencentVideo
 var resultAddrNo11= "https://v.qq.com/x/search/?q="+ searchText;
-var resultImgNo11 = "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1150758895,2712244977&fm=26&gp=0.jpg";
+var resultImgNo11 = "/assets/images/txvideologo.png";
 var resultStyleNo11 = "top:-60px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo11 = $.getUrlParam('TencentVideo');
 var resultXYDisplayNo11 ="overflow-x:scroll;overflow-y:scroll;";
@@ -344,7 +344,7 @@ switch ($.getUrlParam('searchType')) {
 <script type="text/javascript">
 if (resultDisplayGoogle=="on")
 {
-  document.getElementById("logoImgGoogle").src= "https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png";
+  document.getElementById("logoImgGoogle").src= "/assets/images/googlelogo_color_92x30dp.png";
   document.getElementById("logoLinkGoogle").href= "https://www.google.com.hk/search?q="+ searchText;
   document.getElementById("iframeGoogle").style.width = (document.body.clientWidth-widthmargin)+"px";
 //  document.write(document.getElementById("iframeGoogle").style.width);
