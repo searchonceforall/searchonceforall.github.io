@@ -266,6 +266,36 @@ var resultImgNo11 = "/assets/images/txvideologo.png";
 var resultStyleNo11 = "top:-60px;"+"width:"+ (document.body.scrollWidth-widthmargin)+"px";//width:1000px
 var resultDisplayNo11 = $.getUrlParam('TencentVideo');
 var resultXYDisplayNo11 ="overflow-x:scroll;overflow-y:scroll;";
+
+//qqmusic
+var resultAddrNoLogo1= "https://y.qq.com/portal/search.html#w="+ searchText;
+var resultImgNoLogo1 = "/assets/images/qqmusic.jpg";
+var resultDisplayNoLogo1 = $.getUrlParam('qqmusic');
+
+//alimusic
+var resultAddrNoLogo2= "https://www.xiami.com/search?key="+ searchText;
+var resultImgNoLogo2 = "/assets/images/alimusic.jpg";
+var resultDisplayNoLogo2 = $.getUrlParam('alimusic');
+
+//netmusic
+var resultAddrNoLogo3= "https://music.163.com/#/search/m/?s="+ searchText;
+var resultImgNoLogo3 = "/assets/images/netmusic.jpg";
+var resultDisplayNoLogo3 = $.getUrlParam('netmusic');
+
+//kugoumusic
+var resultAddrNoLogo4= "https://www.kugou.com/yy/html/search.html#searchType=song&searchKeyWord="+ searchText;
+var resultImgNoLogo4 = "/assets/images/kugoumusic.jpg";
+var resultDisplayNoLogo4 = $.getUrlParam('kugoumusic');
+//kuwomusic
+var resultAddrNoLogo5= "http://www.kuwo.cn/search/list?key="+ searchText;
+var resultImgNoLogo5 = "/assets/images/kuwomusic.jpg";
+var resultDisplayNoLogo5 = $.getUrlParam('kuwomusic');
+
+//baidumusic
+var resultAddrNoLogo6= "http://music.taihe.com/search?key="+ searchText;
+var resultImgNoLogo6 = "/assets/images/baidumusic.jpg";
+var resultDisplayNoLogo6 = $.getUrlParam('baidumusic');
+
 // //JD
 // var resultAddrNo9= "https://search.jd.com/Search?keyword="+ searchText+"&enc=utf-8";
 // var resultImgNo9 = "https://ss0.bdstatic.com/-0U0bnSm1A5BphGlnYG/tam-ogel/299c55e31d7f50ae4dc85faa90d6f445_121_121.jpg";
@@ -284,6 +314,14 @@ switch ($.getUrlParam('searchType')) {
   resultDisplayNo3 = "on";
   resultDisplayNo4 = "on";
   resultDisplayNo6 = "on";
+  break;
+  case 'MS':
+  resultDisplayNoLogo1 = "on";
+  resultDisplayNoLogo2 = "on";
+  resultDisplayNoLogo3 = "on";
+  resultDisplayNoLogo4 = "on";
+  resultDisplayNoLogo5 = "on";
+  resultDisplayNoLogo6 = "on";
   break;
   case 'ME':
   resultDisplayNo1 = "on";
@@ -315,6 +353,7 @@ switch ($.getUrlParam('searchType')) {
 
 <form id="searchForm">
   <p style="display: inline;"><input type="radio" checked="" name="searchType" value="FC" id="SCheckFC" /> Fact Checker</p>
+  <p style="display: inline;"><input type="radio" name="searchType" value="MS" id="SCheckMS" /> Music</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="ME" id="SCheckME" /> Many Engines</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="VD" id="SCheckVD" /> Videos</p>
   <p style="display: inline;"><input type="radio" name="searchType" value="Sp" id="SCheckSp" /> Shops</p>
@@ -324,7 +363,7 @@ switch ($.getUrlParam('searchType')) {
   <p style="display: inline;"><input type="checkbox" name="Google" id="SCheckGoogle" /> <b>Google</b></p>
   <script>
   document.getElementById("searchFormInput").value= searchText ;
-  //document.getElementById("SCheckFC").checked=($.getUrlParam('searchType')=="FC");
+  document.getElementById("SCheckMS").checked=($.getUrlParam('searchType')=="MS");
   document.getElementById("SCheckME").checked=($.getUrlParam('searchType')=="ME");
   document.getElementById("SCheckVD").checked=($.getUrlParam('searchType')=="VD");
   document.getElementById("SCheckSp").checked=($.getUrlParam('searchType')=="Sp");
@@ -675,6 +714,126 @@ else{
 
 </div>
 <!-- Result Area No11 End -->
+
+<!-- Result Area No1 Start -->
+<div id="resultAreaNoLogo1">
+<figure class="flogo">
+<a id="logoLinkNoLogo1" target="_BLANK"><img id="logoImgNoLogo1" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo1=="on")
+{
+document.getElementById("logoLinkNoLogo1").href= resultAddrNoLogo1;
+document.getElementById("logoImgNoLogo1").src = resultImgNoLogo1;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo1").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No1 End -->
+
+<!-- Result Area No2 Start -->
+<div id="resultAreaNoLogo2">
+<figure class="flogo">
+<a id="logoLinkNoLogo2" target="_BLANK"><img id="logoImgNoLogo2" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo2=="on")
+{
+document.getElementById("logoLinkNoLogo2").href= resultAddrNoLogo2;
+document.getElementById("logoImgNoLogo2").src = resultImgNoLogo2;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo2").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No2 End -->
+
+<!-- Result Area No3 Start -->
+<div id="resultAreaNoLogo3">
+<figure class="flogo">
+<a id="logoLinkNoLogo3" target="_BLANK"><img id="logoImgNoLogo3" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo3=="on")
+{
+document.getElementById("logoLinkNoLogo3").href= resultAddrNoLogo3;
+document.getElementById("logoImgNoLogo3").src = resultImgNoLogo3;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo3").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No3 End -->
+
+<!-- Result Area No4 Start -->
+<div id="resultAreaNoLogo4">
+<figure class="flogo">
+<a id="logoLinkNoLogo4" target="_BLANK"><img id="logoImgNoLogo4" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo4=="on")
+{
+document.getElementById("logoLinkNoLogo4").href= resultAddrNoLogo4;
+document.getElementById("logoImgNoLogo4").src = resultImgNoLogo4;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo4").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No4 End -->
+
+<!-- Result Area No5 Start -->
+<div id="resultAreaNoLogo5">
+<figure class="flogo">
+<a id="logoLinkNoLogo5" target="_BLANK"><img id="logoImgNoLogo5" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo5=="on")
+{
+document.getElementById("logoLinkNoLogo5").href= resultAddrNoLogo5;
+document.getElementById("logoImgNoLogo5").src = resultImgNoLogo5;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo5").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No5 End -->
+
+<!-- Result Area No6 Start -->
+<div id="resultAreaNoLogo6">
+<figure class="flogo">
+<a id="logoLinkNoLogo6" target="_BLANK"><img id="logoImgNoLogo6" /></a>
+</figure>
+<script type="text/javascript">
+if (resultDisplayNoLogo6=="on")
+{
+document.getElementById("logoLinkNoLogo6").href= resultAddrNoLogo6;
+document.getElementById("logoImgNoLogo6").src = resultImgNoLogo6;
+
+}
+else{
+  document.getElementById("resultAreaNoLogo6").style = "width:0px;height:0px;overflow-y:hidden;"
+}
+</script>
+
+</div>
+<!-- Result Area No6 End -->
 
 
     </section>
